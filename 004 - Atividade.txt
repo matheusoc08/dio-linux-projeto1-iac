@@ -1,0 +1,30 @@
+
+Criar os diretorios
+/publico
+/adm
+/ven
+/sec
+
+Criar os Grupos
+GRP_ADM
+GRP_VEN
+GRP_SEC
+
+Criar os Usuarios e atribuir aos grupos
+ADM: carlos, maria, joao
+VEN: debora, roberto, sebastiana 
+SEC: josefina, amanda, rogerio
+
+
+Definições
+- Excluir diretorios, arquivos grupos e usuarios criados anteriormente
+- Todo provisionamento deve ser feito em um arquivo do tipo Bash Script
+- O dono de todos os diretórios criados será o usuario root
+- Todos os usuarios terão permissão total dentro do diretorio publico
+- Os usuarios de cada grupo terão permissão total dentro de seu
+respectivo diretorio
+- Os usuarios não poderão ter permissão de leitura, escrita e execução
+em diretórios de departamentos que eles não pertencem
+- Subir o arquivo de script criado para a sua conta no GitHub
+
+

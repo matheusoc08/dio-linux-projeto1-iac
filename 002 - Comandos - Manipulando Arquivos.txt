@@ -1,0 +1,266 @@
+
+1 -------------- Navegando pelo sistema de arquivos
+Entendendo o terminal
+usuario@nomecomputador: ~$
+
+Podem ser criados mais usuarios.
+
+: indica onde o usuario está no momento
+~ indica a pasta do usuario
+$ indica que é um usuario padrao
+# indica que é um usuario administrador (super usuario)
+/ indica a pasta raiz
+
+Comandos
+date
+Retorna data e hora atual
+
+clear ou ctrl+L
+Limpa a tela do terminal
+
+pwd
+Retonar o caminho do diretorio atual
+
+cd /
+Leva para o diretorio raiz
+
+cd diretorio
+Leva para o diretorio informado
+
+cd ..
+Leva para o diretorio predecessor ao atual
+
+cd ../diretorio
+Leva diretamente para outro diretorio que está no diretorio predecessor ao atual
+
+cd /diretorio/diretorio/diretorio
+Informando o caminho inteiro de um certo diretorio, irá abri-lo
+
+cd /diretorio/diretorio/dire + tab
+Caso exista e seja unico, completerá o nome do diretorio
+
+cd /diretorio/diretorio + tab+tab
+Retornará uma lista com os diretorios e arquivos dentro do diretorio pré escrito
+
+ls
+Exibe os diretorios e arquivos presente no diretorio atual
+
+
+2 -------------- Filtrando a exibicao de arquivos
+ls | more
+Exibe uma lista com todos os arquivos e diretorios. Apertando Enter rolará a lista pra baixo. Ctrl+c saira da função
+
+ls diretorio
+Retornar o arquivo ou diretorio, quando existente
+
+ls p
+Retornar os arquivos que iniciam com a letra p
+
+ls p*
+Retornar os diretorio e arquivos que iniciam com a letra p e o conteudo do diretorio de cada 
+
+ls m?g*
+Retornar os diretorio e arquivos que iniciam com a letra m, tenha qualquer conteudo na segunda, a terceira seja g e a 
+partir pode ser qualquer o conteudo do diretorio de cada 
+
+touch arquivo.ext
+Cria um arquivo vazio
+
+ls arquivo[1-3].ext
+Lista arquivos de nome do 1 ao 3
+
+ls arquivo[2,3].ext
+Lista arquivos de nome 2 e 3
+
+ls arquivo[^1].ext
+Exibir tudo menos o arquivo1.ext
+
+ls arquivo[^2-3].ext
+Exibir tudo menos os arquivos 2 ao 3.ext
+
+3 -------------- Localizando arquivos
+ls /sys
+Retorna todos os arquivos e diretorios dentro do diretorio sys
+
+ls /sys/kernel/p*
+Retorna todos os arquivos e diretorios dentro do diretorio kernel com o parametro p*
+
+find -name arq*
+Busca em todos os diretorios a partir do atual todos os arquivos e que iniciam com arq
+
+4 -------------- Criando diretorio
+mkdir nomeDiretorio
+Cria um diretorio
+
+mkdir nomeDiretorio1 nomeDiretorio2
+Cria mais diretorios
+
+
+mkdir "Meus Documentos"
+Cria um diretorio com espaço entre palavras
+
+rmdir nomeDiretorio
+Deleta um diretorio vazio
+
+rm nomeArquivo.ext
+Deleta um arquivo
+
+rm arquivo*
+Deleta todos os arquivos que iniciam com arquivo
+
+rm *.txt
+Deleta todos os arquivos com extensao txt
+
+rmdir nomeDiretorio1 nomeDiretorio2
+Deleta mais de um diretorio
+
+rm -rf nomeDiretorio
+Vai deletar um diretorio e tudo o que estiver dentro dele
+
+5 -------------- Obtendo ajuda
+ls --help
+Informa uma breve explicação do comando e parametros que possam utilizados com ele
+
+ls -l
+Exibe os arquivos e diretorios em lista com mais informações
+
+ls -la
+Exibe todos os arquivos, inclusive arquivos ocultos
+
+ls -lh
+Exibe os arquivos e diretorios com seu tamanhos em KB, MB, etc
+
+rm -rfv
+Apaga todos tudo em um diretorio e retorna uma mensagem do que está sendo feito
+
+rm -rfvi
+Questiona se o usuario realmente quer deletar
+
+man ls
+Retorna uma lista de ajuda em forma de artigo
+
+6 -------------- Executando tarefas administrativas como root
+O arquivo groups, mostra os acessos dos usuarios
+
+cat /etc/group
+Abrira o arquivo que contem a listagem de grupos e usuarios
+
+sudo
+É um grupo administrativo
+
+Comandos
+cat nomeArquivo
+Para ler um arquivo de texto
+
+sudo mkdir Aula
+Incluir sudo executa o comando como administrador. Pode solicitar senha
+
+sudo cat /etc/sudoers
+Mostra os usuarios que possuem acesso ao sudo
+
+7 -------------- Logando como usuario root (super usuario)
+sudo passwd usuario
+Atribui uma senha a um usuario existente
+
+su
+Loga como super usuario root
+
+su usuario
+Loga como o usuario
+
+8 -------------- Liberando acesso remoto do usuario root
+cat /etc/ssh/sshd_config
+É o arquivo de configuracao do sshd. Arquivo para habilitar o acesso remoto
+
+sudo nano etc/ssh/sshd_config
+Para habilitar o acesso remoto do usuario root é necessario alterar a linha "#PermitRootLogin prohibit-password" para "PermitRootLogin yes"
+Para habilitar, deve-se reiniciar o sistema ou reiniciar o serviço sshd
+
+
+Comando
+nano arquivo.txt
+Para habilitar a edição de arquivo de texto.
+Para salvar, pressione ctrl+o e ctrl+x para sair.
+
+systemctl status nomeServico
+Informa o status de um serviço e um log sobre o uso dele
+
+systemctl restart nomeServico
+Reinicia o serviço
+
+9 -------------- Trabalhando com arquivos de texto
+Dois arquivos de text é o VI e o Nano
+Vi, não tem uma interface muito amigavel
+Nano, user-friendly
+
+No VI, deve-se pressionar a tecla i para acessar o modo de edição. Tecla ESC para sair do modo edição.
+Para salvar e sair, pressiona-se a tecla : e digite wq.
+
+No Nano, ele entra direto no modo edição.
+Para salvar as mudanças deve-se pressionar ctrl+o e ctrl+x para sair.
+
+
+Comandos
+vi nomeArquivo.txt ou nano nomeArquivo.txt
+Abre ou cria um arquivo
+
+10 -------------- Historico de comandos
+Armazena e possibilita consultar o historico de comandos realizados por um usuario
+
+
+Comandos
+history
+Consultar o historico dos ultimos mil comandos realizados por um usuario
+
+!numeroComandoHistory
+Executa o comando na posição informada
+
+!!
+Executa o ultimo comando utilizado
+
+!?hist?
+Executa um comando da lista history com nome o aproximado
+
+history | grep "hist"
+Lista se foi utilizado algum comando com o parametro
+
+export HISTTIMEFORMAT="(formato) "
+Edita a variavel de ambiente para exibir o historico de comandos com data e/ou hora
+
+history -c
+Limpa o historico
+
+set +o history
+Para impedir o armazenamento de comando
+
+set -o history
+Para habilitar o armazenamento de comando
+
+Na pasta do usuario é possivel alterar a quantidade de comandos armazenados, alterando o arquivo .bashrc no parametro HISTSIZE
+
+history -w
+Armazena um historico dos ultimos comandos em um arquivo na pasta do usuario (".bash_history")
+
+Formatos 
+%d: Day
+%m: Month
+%y: Year
+%M: Minutes
+%S: Seconds
+%F: Full date (Y-M-D format)
+%T: Tie (H:M:S format)
+%c: Full datetime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
